@@ -20,6 +20,10 @@ module.exports = {
     module:{   //此节点用于配置所有第三方模块加载器
         rules:[   //所有第三方模块的匹配规则
             {
+                test:/\.vue$/,   //匹配.vue文件  
+                use:'vue-loader'
+            },
+            {
                 test:/\.css$/,   //正则
                 use:['style-loader','css-loader']   //匹配到则使用这些第三方loader
             },
@@ -43,10 +47,6 @@ module.exports = {
                 test:/\.js$/,   //匹配JS文件  
                 use:'babel-loader',
                 exclude:/node_modules/  //排除node_modules目录
-            },
-            {
-                test:/\.vue$/,   //匹配.vue文件  
-                use:'vue-loader'
             }
         ]
     }
